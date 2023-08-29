@@ -1,5 +1,4 @@
 from typing import Dict
-import string
 
 def is_valid_anagram(word1: str, word2: str) -> bool:
     tally: Dict[str, int] = {}
