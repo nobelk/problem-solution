@@ -16,8 +16,16 @@ from solution.pair_with_target_sum import find_pair
 from solution.array_sign import arraySign
 from solution.plus_one import plus_one
 from solution.asteroid import asteroidCollision
-from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_traverse, zigzag_traverse, level_average,min_tree_depth,find_level_order_successor
+from solution.balance_parenthesis import is_balanced
+from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_traverse, zigzag_traverse, \
+    level_average, min_tree_depth, find_level_order_successor
 import sure
+
+
+def test_is_balanced():
+    is_balanced("{[()]}").should.equal(True)
+    is_balanced("{[}]").should.equal(False)
+    is_balanced("(]").should.equal(False)
 
 
 def test_duplicates():
@@ -155,17 +163,20 @@ def test_find_level_order_successor():
     root.left.right = TreeNode(5)
     find_level_order_successor(root, 3).should.equal(4)
 
+
 def test_find_pair():
     find_pair([1, 2, 3, 4, 5, 6], 6).should.equal([0, 4])
     find_pair([2, 5, 9, 11], 11).should.equal([0, 2])
+
 
 def test_arraySign():
     arraySign([-1, 2, -5, 3, 4]).should.equal(1)
     arraySign([1, 2, 4, 42323, 0, -1]).should.equal(0)
 
+
 def test_plus_one():
     plus_one([1, 2, 9]).should.equal([1, 3, 0])
 
-def test_asteroid_solution():
-    asteroidCollision([5, 10, -5]).should.equal([5,10])
 
+def test_asteroid_solution():
+    asteroidCollision([5, 10, -5]).should.equal([5, 10])
