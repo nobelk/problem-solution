@@ -13,13 +13,23 @@ from solution.two_pointers_pattern_problems import search_triplets
 from solution.two_pointers_pattern_problems import dutch_flag_sort
 from solution.url_shortener import shorten_url
 from solution.pair_with_target_sum import find_pair
-from solution.array_sign import arraySign
+from solution.array_sign import array_sign
 from solution.plus_one import plus_one
 from solution.asteroid import asteroidCollision
 from solution.balance_parenthesis import is_balanced
+from solution.max_length_of_pair_chain import find_longest_chain
 from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_traverse, zigzag_traverse, \
     level_average, min_tree_depth, find_level_order_successor
 import sure
+
+
+def test_find_longest_chain():
+    example1 = [[1, 2], [3, 4], [2, 3]]
+    example2 = [[5, 6], [1, 2], [8, 9], [2, 3]]
+    example3 = [[7, 8], [5, 6], [1, 2], [3, 5], [4, 5], [2, 3]]
+    find_longest_chain(example1).should.equal(2)
+    find_longest_chain(example2).should.equal(3)
+    find_longest_chain(example3).should.equal(3)
 
 
 def test_is_balanced():
@@ -170,8 +180,8 @@ def test_find_pair():
 
 
 def test_arraySign():
-    arraySign([-1, 2, -5, 3, 4]).should.equal(1)
-    arraySign([1, 2, 4, 42323, 0, -1]).should.equal(0)
+    array_sign([-1, 2, -5, 3, 4]).should.equal(1)
+    array_sign([1, 2, 4, 42323, 0, -1]).should.equal(0)
 
 
 def test_plus_one():

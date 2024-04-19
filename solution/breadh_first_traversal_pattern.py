@@ -161,7 +161,7 @@ def connect_next_level_order_siblings(root: TreeNode) -> None:
     return
 
 
-def connect_all_level_order_siblings(root:TreeNode)->None:
+def connect_all_level_order_siblings(root: TreeNode) -> None:
     if not root:
         return
 

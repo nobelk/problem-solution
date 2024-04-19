@@ -1,7 +1,4 @@
-from collections.abc import Sequence
-
-
-def arraySign(nums: list[int]) -> int:
+def array_sign(nums: list[int]) -> int:
     count = 0
     for num in nums:
         if num == 0:

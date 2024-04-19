@@ -1,4 +1,4 @@
-def find_pair_with_target_sum(arr: list[int], target_sum: int) -> list[int]:
+def find_pair_with_target_sum1(arr: list[int], target_sum: int) -> list[int]:
     left_ptr = 0
     right_ptr = len(arr) - 1
     while left_ptr < right_ptr:
@@ -50,7 +50,8 @@ def search_triplets(arr: list[int]) -> list[list[int]]:
     return triplets
 
 
-def find_pair_with_target_sum(arr: list[int], target_sum: int, left: int, triplets: list[list[int]]):
+def find_pair_with_target_sum(arr: list[int], target_sum: int, left: int,
+                              triplets: list[list[int]]):
     right = len(arr) - 1
     while left < right:
         sum = arr[left] + arr[right]

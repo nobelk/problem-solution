@@ -1,5 +1,6 @@
 from solution.node import Node
 
+
 # Efficient string building
 def build_string(arr):
     result = []

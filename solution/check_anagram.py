@@ -1,5 +1,6 @@
 from typing import Dict
 
+
 def is_valid_anagram(word1: str, word2: str) -> bool:
     tally: Dict[str, int] = {}
     word1_arr = list(word1.lower())

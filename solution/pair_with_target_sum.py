@@ -1,7 +1,7 @@
 def find_pair(arr, targetSum):
-    left, right = 0, len(arr)-1
+    left, right = 0, len(arr) - 1
     while (left < right):
-        current_sum = arr[left]+arr[right]
+        current_sum = arr[left] + arr[right]
         if current_sum == targetSum:
             return [left, right]
 
