@@ -17,10 +17,53 @@ from solution.array_sign import array_sign
 from solution.plus_one import plus_one
 from solution.asteroid import asteroidCollision
 from solution.balance_parenthesis import is_balanced
+from solution.two_number_sum import twoNumberSum
+from solution.binary_search import binarySearch
+from solution.run_length_encoding import get_run_length_encoding
 from solution.max_length_of_pair_chain import find_longest_chain
+from solution.semordnilap import find_semordnilap
+from solution.generate_document import can_generate_document
+from solution.binary_tree import BinaryTree
+from solution.sum_of_node_depths import sum_node_depths
 from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_traverse, zigzag_traverse, \
     level_average, min_tree_depth, find_level_order_successor
 import sure
+
+
+def test_sum_of_node_depths():
+    t = BinaryTree(1)
+    t.left = BinaryTree(2)
+    t.right = BinaryTree(3)
+    t.left.left = BinaryTree(4)
+    t.left.right = BinaryTree(5)
+    t.left.left.left = BinaryTree(8)
+    t.left.left.right = BinaryTree(9)
+    t.right.left = BinaryTree(6)
+    t.right.right = BinaryTree(7)
+    sum_node_depths(t).should.equal(16)
+
+
+def test_run_length_encoding():
+    get_run_length_encoding("AB").should.equal("1A1B")
+    get_run_length_encoding("AAAAAAAAAAAAABBCCCC").should.equal("9A4A2B4C")
+
+
+def test_can_generate_document():
+    can_generate_document("n e w s o f f ice", "news office").should.equal(True)
+    can_generate_document("asdf asd;fasdf ", "").should.equal(True)
+
+
+def test_find_semordnilap():
+    find_semordnilap(["ox", "racecar", "diaper", "box", "repaid", "racecar"]).should.equal(
+        [["diaper", "repaid"], ["racecar", "racecar"]])
+
+
+def test_binary_search():
+    binarySearch([0, 1, 21, 33, 45, 45, 61, 71, 72, 73], 33).should.equal(3)
+
+
+def test_twoNumberSum():
+    twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10).should.equal([-1, 11])
 
 
 def test_find_longest_chain():
