@@ -15,6 +15,7 @@ from solution.url_shortener import shorten_url
 from solution.pair_with_target_sum import find_pair
 from solution.array_sign import array_sign
 from solution.plus_one import plus_one
+from solution.DFS_graph import Node
 from solution.asteroid import asteroidCollision
 from solution.balance_parenthesis import is_balanced
 from solution.two_number_sum import twoNumberSum
@@ -24,10 +25,45 @@ from solution.max_length_of_pair_chain import find_longest_chain
 from solution.semordnilap import find_semordnilap
 from solution.generate_document import can_generate_document
 from solution.binary_tree import BinaryTree
+from solution.transpose_matrix import transposeMatrix
+from solution.class_photos import classPhotos
+from solution.product_sum_of_special_array import productSum
+from solution.min_waiting_time import minimumWaitingTime
 from solution.sum_of_node_depths import sum_node_depths
+from solution.common_characters import commonCharacters
 from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_traverse, zigzag_traverse, \
     level_average, min_tree_depth, find_level_order_successor
 import sure
+
+
+def test_transpose_matrix():
+    transposeMatrix([[1, 2], [3, 4]]).should.equal([[1, 3], [2, 4]])
+    transposeMatrix([[1, 2], [3, 4], [5, 6]]).should.equal([[1, 3, 5], [2, 4, 6]])
+
+
+def test_common_characters():
+    commonCharacters(["abc", "bcd", "cbaccd"]).should.equal(["b", "c"])
+
+
+def test_product_sum():
+    productSum([5, 2, [7, -1], 3, [6, [-13, 8], 4]]).should.equal(12)
+
+
+def test_class_photos():
+    classPhotos([19, 19, 21, 1, 1, 1, 1, 1], [20, 5, 4, 4, 4, 4, 4, 4]).should.equal(False)
+    classPhotos([126], [125]).should.equal(True)
+    classPhotos([125], [125]).should.equal(False)
+
+
+def test_min_waiting_time():
+    minimumWaitingTime([3, 2, 1, 2, 6]).should.equal(17)
+
+
+def test_dfs_graph():
+    n = Node("a")
+    arr = []
+    Node.depthFirstSearch(n, arr)
+    arr.should.equal(["a"])
 
 
 def test_sum_of_node_depths():
