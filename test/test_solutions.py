@@ -12,6 +12,7 @@ from solution.two_pointers_pattern_problems import make_squares
 from solution.two_pointers_pattern_problems import search_triplets
 from solution.two_pointers_pattern_problems import dutch_flag_sort
 from solution.url_shortener import shorten_url
+from solution.tournament_winner import tournamentWinner
 from solution.pair_with_target_sum import find_pair
 from solution.array_sign import array_sign
 from solution.plus_one import plus_one
@@ -25,15 +26,93 @@ from solution.max_length_of_pair_chain import find_longest_chain
 from solution.semordnilap import find_semordnilap
 from solution.generate_document import can_generate_document
 from solution.binary_tree import BinaryTree
+from solution.nth_fibonacci_number import getNthFib
+from solution.bubble_sort import bubble_sort
 from solution.transpose_matrix import transposeMatrix
 from solution.class_photos import classPhotos
 from solution.product_sum_of_special_array import productSum
 from solution.min_waiting_time import minimumWaitingTime
 from solution.sum_of_node_depths import sum_node_depths
+from solution.validate_subsequence import isValidSubsequence
+from solution.find_three_largest_numbers import findThreeLargestNumbers
 from solution.common_characters import commonCharacters
+from solution.branch_sums import branchSums
+from solution.find_middle_node_of_linked_list import LinkedList, middleNode
 from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_traverse, zigzag_traverse, \
     level_average, min_tree_depth, find_level_order_successor
+from solution.caesar_cipher_encryptor import caesarCipherEncryptor
+from solution.evaluate_expression_tree import evaluateExpressionTree
 import sure
+
+
+def test_evaluate_expression_tree():
+    t = BinaryTree(-4)
+    t.left = BinaryTree(3)
+    t.right = BinaryTree(2)
+    result = evaluateExpressionTree(t)
+    result.should.equal(6)
+
+    t = BinaryTree(-3)
+    t.left = BinaryTree(3)
+    t.right = BinaryTree(2)
+    result = evaluateExpressionTree(t)
+    result.should.equal(1)
+
+
+def test_bubble_sort():
+    bubble_sort([8, 5, 2, 9, 5, 6, 3]).should.equal([2, 3, 5, 5, 6, 8, 9])
+
+
+def test_caesar_cipher_encryptor():
+    caesarCipherEncryptor('xyz', 2).should.equal('zab')
+
+
+def test_branch_sums():
+    t = BinaryTree(1)
+    t.left = BinaryTree(2)
+    t.right = BinaryTree(3)
+    t.left.left = BinaryTree(4)
+    t.left.right = BinaryTree(5)
+    t.left.left.left = BinaryTree(8)
+    t.left.left.right = BinaryTree(9)
+    t.right.left = BinaryTree(6)
+    t.right.right = BinaryTree(7)
+    result = branchSums(t)
+    result.should.equal([15, 16, 8, 10, 11])
+
+
+def test_tournament_winner():
+    competions = [
+        ["HTML", 'C#'],
+        ['C#', 'Python'],
+        ['Python', 'HTML']
+    ]
+    results = [0, 0, 1]
+    tournamentWinner(competions, results).should.equal('Python')
+
+
+def test_find_middle_node():
+    head = LinkedList(1)
+    head.next = LinkedList(2)
+    head.next.next = LinkedList(3)
+    head.next.next.next = LinkedList(4)
+    head.next.next.next.next = LinkedList(5)
+    middle_node = middleNode(head)
+    middle_node.value.should.equal(3)
+
+
+def test_find_three_largest_numbers():
+    findThreeLargestNumbers([141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7]).should.equal([18, 141, 541])
+
+
+def test_is_valid_subsequence():
+    isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 22, 25, 6, -1, 8, 10]).should.equal(True)
+
+
+def test_nth_fibonacci():
+    getNthFib(3).should.equal(1)
+    getNthFib(11).should.equal(55)
+    getNthFib(101).should.equal(354224848179261915075)
 
 
 def test_transpose_matrix():
