@@ -42,8 +42,33 @@ from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_
     level_average, min_tree_depth, find_level_order_successor
 from solution.caesar_cipher_encryptor import caesarCipherEncryptor
 from solution.evaluate_expression_tree import evaluateExpressionTree
+from solution.sorted_squared_array import sortedSquaredArray
+from solution.selection_sort import selectionSort
+from solution.non_constructible_change import nonConstructibleChange
+from solution.find_closest_value_in_BST import BST,findClosestValueInBst
+
 import sure
 import pytest
+
+
+def test_selection_sort():
+    selectionSort([8, 5, 2, 9, 5, 6, 3]).should.equal([2, 3, 5, 5, 6, 8, 9])
+
+
+def test_find_closest_value_in_BST():
+    t = BST(4)
+    t.left = BinaryTree(2)
+    t.right = BinaryTree(6)
+    result = findClosestValueInBst(t, 7)
+    result.should.equal(6)
+
+
+def test_non_constructible_change():
+    nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]).should.equal(20)
+
+
+def test_sorted_squared_array():
+    sortedSquaredArray([-10, -5, 0, 5, 10]).should.equal([0, 25, 25, 100, 100])
 
 
 def test_evaluate_expression_tree():

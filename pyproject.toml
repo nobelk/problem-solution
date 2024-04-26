@@ -6,7 +6,7 @@ authors = ["Dr. Nobel Khandaker <nobel@outlook.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 pytest = "^7.4.0"
 sure = "^2.0.1"
 flake8 = "^7.0.0"
