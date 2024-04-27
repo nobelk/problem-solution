@@ -12,6 +12,7 @@ from solution.two_pointers_pattern_problems import make_squares
 from solution.two_pointers_pattern_problems import search_triplets
 from solution.two_pointers_pattern_problems import dutch_flag_sort
 from solution.url_shortener import shorten_url
+from solution.smallest_difference import smallestDifference
 from solution.tournament_winner import tournamentWinner
 from solution.pair_with_target_sum import find_pair
 from solution.array_sign import array_sign
@@ -37,6 +38,7 @@ from solution.validate_subsequence import isValidSubsequence
 from solution.find_three_largest_numbers import findThreeLargestNumbers
 from solution.common_characters import commonCharacters
 from solution.branch_sums import branchSums
+from solution.validate_BST import validateBst
 from solution.find_middle_node_of_linked_list import LinkedList, middleNode
 from solution.breadh_first_traversal_pattern import TreeNode, traverse, reverse_traverse, zigzag_traverse, \
     level_average, min_tree_depth, find_level_order_successor
@@ -44,11 +46,35 @@ from solution.caesar_cipher_encryptor import caesarCipherEncryptor
 from solution.evaluate_expression_tree import evaluateExpressionTree
 from solution.sorted_squared_array import sortedSquaredArray
 from solution.selection_sort import selectionSort
+from solution.one_edit import oneEdit
+from solution.monotonically_increasing import isMonotonic
 from solution.non_constructible_change import nonConstructibleChange
-from solution.find_closest_value_in_BST import BST,findClosestValueInBst
+from solution.find_closest_value_in_BST import BST, findClosestValueInBst
 
 import sure
 import pytest
+
+
+def test_is_monotonic():
+    isMonotonic([-1, -1, -2, -3, -4, -5, -5, -5, -6, -7, -8, -8, -9, -10, -11]).should.equal(True)
+
+
+def test_validate_BST():
+    t = BinaryTree(10)
+    t.left = BinaryTree(5)
+    t.right = BinaryTree(15)
+    t.left.right = BinaryTree(10)
+    validateBst(t).should.equal(False)
+
+
+def test_smallest_difference():
+    smallestDifference([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]).should.equal([28, 26])
+
+
+def test_one_edit():
+    oneEdit('hello', 'hallo').should.equal(True)
+    oneEdit('abc', 'ac').should.equal(True)
+    oneEdit('ab', 'acsdf').should.equal(False)
 
 
 def test_selection_sort():
