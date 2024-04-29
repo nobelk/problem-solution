@@ -47,12 +47,59 @@ from solution.evaluate_expression_tree import evaluateExpressionTree
 from solution.sorted_squared_array import sortedSquaredArray
 from solution.selection_sort import selectionSort
 from solution.one_edit import oneEdit
+from solution.longest_peak_length import longestPeak
 from solution.monotonically_increasing import isMonotonic
 from solution.non_constructible_change import nonConstructibleChange
 from solution.find_closest_value_in_BST import BST, findClosestValueInBst
+from solution.tree_traversal import inOrderTraverse, preOrderTraverse, postOrderTraverse
+from solution.invert_binary_tree import invertBinaryTree
 
 import sure
 import pytest
+
+
+def test_invert_binary_tree():
+    t = BinaryTree(1)
+    t.left = BinaryTree(2)
+    t.right = BinaryTree(3)
+    t.left.left = BinaryTree(4)
+    t.left.right = BinaryTree(4)
+    t.right.right = BinaryTree(7)
+    t.right.left = BinaryTree(6)
+    invertBinaryTree(t)
+    t.value.should.equal(1)
+    t.right.value.should.equal(2)
+    t.left.value.should.equal(3)
+    t.right.right.value.should.equal(4)
+
+
+def test_tree_traversal():
+    in_order_result = [1, 2, 5, 5, 10, 15, 22]
+    pre_order_result = [10, 5, 2, 1, 5, 15, 22]
+    post_order_result = [1, 2, 5, 5, 22, 15, 10]
+
+    t = BinaryTree(10)
+    t.right = BinaryTree(15)
+    t.left = BinaryTree(5)
+    t.right.right = BinaryTree(22)
+    t.left.left = BinaryTree(2)
+    t.left.right = BinaryTree(5)
+    t.left.left.left = BinaryTree(1)
+
+    array = []
+    array = inOrderTraverse(t, array)
+    array.should.equal(in_order_result)
+    array = []
+    array = preOrderTraverse(t, array)
+    array.should.equal(pre_order_result)
+    array = []
+    array = postOrderTraverse(t, array)
+    array.should.equal(post_order_result)
+
+
+def test_longest_peak_length():
+    longestPeak([1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]).should.equal(6)
+
 
 
 def test_is_monotonic():
