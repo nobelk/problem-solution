@@ -53,9 +53,42 @@ from solution.non_constructible_change import nonConstructibleChange
 from solution.find_closest_value_in_BST import BST, findClosestValueInBst
 from solution.tree_traversal import inOrderTraverse, preOrderTraverse, postOrderTraverse
 from solution.invert_binary_tree import invertBinaryTree
+from solution.symmetrical_tree import symmetricalTree
+from solution.two_colorable import twoColorable
+from solution.graph_bfs import Node
 
 import sure
 import pytest
+
+
+def test_graph_bfs():
+    g = Node("A")
+    g.addChild("B")
+    g.addChild("C")
+    g.addChild("D")
+    array = []
+    g.breadthFirstSearch(array)
+    array.should.equal(["A", "B", "C", "D"])
+
+
+def test_two_colorable():
+    edges = [
+        [0, 1],
+        [0, 2],
+        [1, 2]
+    ]
+    twoColorable(edges).should.equal(False)
+
+
+def test_symmetrical_tree():
+    t = BinaryTree(1)
+    t.left = BinaryTree(2)
+    t.right = BinaryTree(2)
+    t.left.left = BinaryTree(3)
+    t.left.right = BinaryTree(4)
+    t.right.right = BinaryTree(3)
+    t.right.left = BinaryTree(4)
+    symmetricalTree(t).should.equal(True)
 
 
 def test_invert_binary_tree():
@@ -99,7 +132,6 @@ def test_tree_traversal():
 
 def test_longest_peak_length():
     longestPeak([1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]).should.equal(6)
-
 
 
 def test_is_monotonic():
