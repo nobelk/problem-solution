@@ -56,9 +56,23 @@ from solution.invert_binary_tree import invertBinaryTree
 from solution.symmetrical_tree import symmetricalTree
 from solution.two_colorable import twoColorable
 from solution.graph_bfs import Node
+from solution.move_element_to_end import moveElementToEnd
+from solution.all_valid_ip_addresses import validIPAddresses
 
 import sure
 import pytest
+
+
+
+def test_valid_ip_addresses():
+    validIPAddresses('1921680').should.equal(["1.9.216.80", "1.92.16.80", "1.92.168.0", "19.2.16.80", "19.2.168.0", "19.21.6.80", "19.21.68.0", "19.216.8.0", "192.1.6.80", "192.1.68.0", "192.16.8.0"]
+)
+
+
+
+def test_move_element_to_end():
+    moveElementToEnd([2, 1, 2, 2, 2, 3, 4, 2], 2).should.equal([4, 1, 3, 2, 2, 2, 2, 2])
+
 
 
 def test_graph_bfs():
