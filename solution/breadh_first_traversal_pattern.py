@@ -166,7 +166,7 @@ def connect_all_level_order_siblings(root: TreeNode) -> None:
         return
 
     queue = deque()
-    queue.add(root)
+    queue.append(root)
     previous_node = None
 
     while queue:
