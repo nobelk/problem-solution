@@ -61,17 +61,43 @@ from solution.move_element_to_end import moveElementToEnd
 from solution.all_valid_ip_addresses import validIPAddresses
 from solution.stair_climbing import climbStairs
 from solution.cycle_in_graph import cycleInGraph
-from solution.has_path_sum import has_path_sum, TreeNode
+from solution.has_path_sum import has_path_sum
+from solution.palindrome_number import isPalindrome
+from solution.search_insert_position import searchInsert
+from solution.average_of_tree_levels import averageOfLevels, TreeNodeL
 
+import math
 import sure
 import pytest
 
 
+def test_average_of_levels():
+    t = TreeNodeL(3)
+    t.left = TreeNodeL(9)
+    t.right = TreeNodeL(20)
+    t.right.left = TreeNodeL(15)
+    t.right.right = TreeNodeL(7)
+    res = averageOfLevels(t)
+    math.isclose(res[0], 3.0)
+    math.isclose(res[1], 14.5)
+    math.isclose(res[2], 11.0)
+
+
+def test_search_insert():
+    searchInsert([1, 3, 5, 6], 7).should.equal(4)
+    searchInsert([1, 3, 5, 6], 2).should.equal(1)
+
+
+def test_is_palindrome_number():
+    isPalindrome(-123).should.equal(False)
+    isPalindrome(12321).should.equal(True)
+
+
 def test_path_sum_helper():
     has_path_sum(None, 0).should.equal(False)
-    t = TreeNode(1)
-    t.left = TreeNode(2)
-    t.right = TreeNode(3)
+    t = TreeNodeL(1)
+    t.left = TreeNodeL(2)
+    t.right = TreeNodeL(3)
     has_path_sum(t, 3).should.equal(True)
     has_path_sum(t, 5).should.equal(False)
 
