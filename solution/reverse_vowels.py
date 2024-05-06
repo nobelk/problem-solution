@@ -21,3 +21,20 @@ def reverse_vowels(sentence: str) -> str:
             right = right - 1
 
     return "".join(s_array)
+
+
+def reverse_vowels2(s):
+    t = list(s)
+    vowels = set(['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'])
+    left, right = 0, len(t) - 1
+
+    while left < right:
+        while left < right and not t[left] in vowels:
+            left += 1
+        while left < right and not t[right] in vowels:
+            right -= 1
+        if left < right:
+            t[left], t[right] = t[right], t[left]
+        left += 1
+        right -= 1
+    return "".join(t)

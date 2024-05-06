@@ -1,10 +1,10 @@
-def moveElementToEnd(array, toMove):
-    left_ptr = 0
-    right_ptr = len(array) - 1
-    while left_ptr < right_ptr:
-        while left_ptr < right_ptr and array[right_ptr] == toMove:
-            right_ptr -= 1
-        if array[left_ptr] == toMove:
-            array[left_ptr], array[right_ptr] =  array[right_ptr], array[left_ptr]
-        left_ptr += 1
-    return array
+def moveElementToEnd(nums, toMove):
+    last_item_to_move_at = 0
+    for i in range(len(nums)):
+        if nums[i] != toMove:
+            nums[last_item_to_move_at] = nums[i]
+            last_item_to_move_at += 1
+
+    for i in range(last_item_to_move_at, len(nums)):
+        nums[i] = toMove
+    return nums
