@@ -77,18 +77,47 @@ from solution.pivot_index import find_pivot_index
 from solution.find_difference import find_difference
 from solution.find_max_average import findMaxAverage
 from solution.merge_string_alternatively import mergeAlternately
+from solution.max_level_sum import max_level_sum
+from solution.unique_occurrences import uniqueOccurrences
+from solution.reverse_linked_list import reverse_linked_list
 
 import math
 import sure
 import pytest
 
 
+def test_reverse_linked_list():
+    head = ListNode(1)
+    head.next = ListNode(2)
+    head.next.next = ListNode(3)
+    head.next.next.next = ListNode(4)
+    head.next.next.next = ListNode(5)
+
+    r = reverse_linked_list(head)
+    r.val.should.equal(5)
+
+
+def test_unique_occurrences():
+    uniqueOccurrences([-3, 0, 1, -3, 1, 1, 1, -3, 10, 0]).should.equal(True)
+
+
+def test_max_level_sum():
+    t = TreeNodeL(-100)
+    t.left = TreeNodeL(-200)
+    t.right = TreeNodeL(-300)
+    t.left.left = TreeNodeL(-20)
+    t.left.right = TreeNodeL(-5)
+    t.right.left = TreeNodeL(-10)
+    max_level_sum(t).should.equal(3)
+
+
 def test_merge_string_alternatively():
     mergeAlternately('abcd', 'pq').should.equal('apbqcd')
 
+
 def test_find_max_average():
-    findMaxAverage([1,12,-5,-6,50,3],4).should.equal(12.75)
-    findMaxAverage([5],1).should.equal(5.000)
+    findMaxAverage([1, 12, -5, -6, 50, 3], 4).should.equal(12.75)
+    findMaxAverage([5], 1).should.equal(5.000)
 
 
 def test_find_difference():
