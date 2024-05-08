@@ -80,10 +80,18 @@ from solution.merge_string_alternatively import mergeAlternately
 from solution.max_level_sum import max_level_sum
 from solution.unique_occurrences import uniqueOccurrences
 from solution.reverse_linked_list import reverse_linked_list
+from solution.close_strings import closeStrings
 
 import math
 import sure
 import pytest
+
+
+def test_close_strings():
+    closeStrings("cabbba", "abbccc").should.equal(True)
+    closeStrings("cabbba", "abbccx").should.equal(False)
+
+
 
 
 def test_reverse_linked_list():
