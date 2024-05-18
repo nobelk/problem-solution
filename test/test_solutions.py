@@ -81,10 +81,30 @@ from solution.max_level_sum import max_level_sum
 from solution.unique_occurrences import uniqueOccurrences
 from solution.reverse_linked_list import reverse_linked_list
 from solution.close_strings import closeStrings
+from solution.number_appearing_twice import single_number
+from solution.delete_middle_node import delete_middle_node
 
 import math
 import sure
 import pytest
+
+
+def test_middle_node():
+    head = ListNode(1)
+    head.next = ListNode(3)
+    head.next.next = ListNode(4)
+    head.next.next.next = ListNode(7)
+    head.next.next.next = ListNode(1)
+    head.next.next.next.next = ListNode(2)
+    head.next.next.next.next.next = ListNode(6)
+    head = delete_middle_node(head)
+    head.next.val.should.equal(3)
+
+
+def test_single_number():
+    single_number([1, 2, 3, 4, 3, 2, 1]).should.equal(4)
+    single_number([0, 1, 1]).should.equal(0)
+
 
 
 def test_close_strings():
